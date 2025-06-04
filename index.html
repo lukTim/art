@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Art Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script>
+    async function loadPage(page) {
+      try {
+        const res = await fetch(page);
+        if (!res.ok) throw new Error('Page not found: ' + page);
+        const html = await res.text();
+        document.getElementById("content-window").innerHTML = html;
+        console.log(`Loaded ${page}`);
+      } catch (e) {
+        document.getElementById("content-window").innerHTML = `<p class="text-center text-red-600">Error loading page: ${e.message}</p>`;
+        console.error(e);
+      }
+    }
+
+    window.onload = () => {
+      loadPage('gallery.html');
+    };
+  </script>
+</head>
+<body class="bg-white text-gray-800 min-h-screen">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" onclick="loadPage('gallery.html'); return false;" class="text-2xl font-bold">YourName.Art</a>
+      <ul class="flex gap-6 font-medium">
+        <li><a href="#" onclick="loadPage('gallery.html'); return false;" class="hover:text-blue-500">Gallery</a></li>
+        <li><a href="#" onclick="loadPage('shop.html'); return false;" class="hover:text-blue-500">Shop</a></li>
+        <li><a href="#" onclick="loadPage('about.html'); return false;" class="hover:text-blue-500">About</a></li>
+        <li><a href="#" onclick="loadPage('contact.html'); return false;" class="hover:text-blue-500">Contact</a></li>
+        <li><a href="#" onclick="loadPage('cart.html'); return false;" class="hover:text-blue-500">Cart 🛒</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Dynamic Content Window -->
+  <main id="content-window" class="container mx-auto px-4 py-16"></main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-200 py-6 text-center text-sm">
+    &copy; 2025 YourName. All rights reserved.
+  </footer>
+
+</body>
+</html>
