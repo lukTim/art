@@ -50,9 +50,24 @@
       if (menu.classList.contains('hidden')) {
         menu.classList.remove('hidden');
         requestAnimationFrame(() => menu.classList.add('visible'));
+        document.addEventListener('click', outsideClickListener);
       } else {
-        menu.classList.remove('visible');
-        setTimeout(() => menu.classList.add('hidden'), 300);
+        closeMobileDropdown();
+      }
+    }
+
+    function closeMobileDropdown() {
+      const menu = document.getElementById('mobileDropdown');
+      menu.classList.remove('visible');
+      setTimeout(() => menu.classList.add('hidden'), 300);
+      document.removeEventListener('click', outsideClickListener);
+    }
+
+    function outsideClickListener(event) {
+      const menu = document.getElementById('mobileDropdown');
+      const button = document.getElementById('mobileMenuButton');
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+        closeMobileDropdown();
       }
     }
 
