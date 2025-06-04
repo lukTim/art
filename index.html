@@ -6,23 +6,21 @@
   <title>Your Art Shop</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
-    .dropdown-enter {
+    #mobileMenuButton:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    .fade-toggle {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform-origin: top right;
+    }
+    .fade-toggle.hidden {
       opacity: 0;
       transform: scale(0.95);
     }
-    .dropdown-enter-active {
+    .fade-toggle.visible {
       opacity: 1;
       transform: scale(1);
-      transition: all 0.3s ease;
-    }
-    .dropdown-exit {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .dropdown-exit-active {
-      opacity: 0;
-      transform: scale(0.95);
-      transition: all 0.3s ease;
     }
   </style>
   <script>
@@ -51,10 +49,10 @@
       const menu = document.getElementById('mobileDropdown');
       if (menu.classList.contains('hidden')) {
         menu.classList.remove('hidden');
-        menu.classList.add('dropdown-enter-active');
+        setTimeout(() => menu.classList.add('visible'), 10);
       } else {
-        menu.classList.add('hidden');
-        menu.classList.remove('dropdown-enter-active');
+        menu.classList.remove('visible');
+        setTimeout(() => menu.classList.add('hidden'), 300);
       }
     }
 
@@ -81,15 +79,15 @@
 
       <!-- Mobile Menu Dropdown -->
       <div class="md:hidden relative">
-        <button id="mobileMenuButton" onclick="toggleMobileDropdown()" class="bg-gray-100 w-40 text-left px-4 py-2 rounded border border-gray-300">
+        <button id="mobileMenuButton" onclick="toggleMobileDropdown()" class="bg-gray-100 w-44 text-center px-4 py-2 rounded border border-gray-300 select-none">
           Select Page
         </button>
-        <ul id="mobileDropdown" class="absolute right-0 mt-2 w-40 bg-white border border-gray-300 rounded shadow-lg hidden z-10">
-          <li><a href="#" onclick="loadPage('gallery.html', 'Gallery'); toggleMobileDropdown(); return false;" class="block px-4 py-2 hover:bg-gray-100">Gallery</a></li>
-          <li><a href="#" onclick="loadPage('shop.html', 'Shop'); toggleMobileDropdown(); return false;" class="block px-4 py-2 hover:bg-gray-100">Shop</a></li>
-          <li><a href="#" onclick="loadPage('about.html', 'About'); toggleMobileDropdown(); return false;" class="block px-4 py-2 hover:bg-gray-100">About</a></li>
-          <li><a href="#" onclick="loadPage('contact.html', 'Contact'); toggleMobileDropdown(); return false;" class="block px-4 py-2 hover:bg-gray-100">Contact</a></li>
-          <li><a href="#" onclick="loadPage('cart.html', 'Cart 🛒'); toggleMobileDropdown(); return false;" class="block px-4 py-2 hover:bg-gray-100">Cart 🛒</a></li>
+        <ul id="mobileDropdown" class="absolute right-0 mt-2 w-44 bg-white border border-gray-300 rounded shadow-lg z-10 fade-toggle hidden">
+          <li><a href="#" onclick="loadPage('gallery.html', 'Gallery'); toggleMobileDropdown(); return false;" class="block text-center px-4 py-2 hover:bg-gray-100">Gallery</a></li>
+          <li><a href="#" onclick="loadPage('shop.html', 'Shop'); toggleMobileDropdown(); return false;" class="block text-center px-4 py-2 hover:bg-gray-100">Shop</a></li>
+          <li><a href="#" onclick="loadPage('about.html', 'About'); toggleMobileDropdown(); return false;" class="block text-center px-4 py-2 hover:bg-gray-100">About</a></li>
+          <li><a href="#" onclick="loadPage('contact.html', 'Contact'); toggleMobileDropdown(); return false;" class="block text-center px-4 py-2 hover:bg-gray-100">Contact</a></li>
+          <li><a href="#" onclick="loadPage('cart.html', 'Cart 🛒'); toggleMobileDropdown(); return false;" class="block text-center px-4 py-2 hover:bg-gray-100">Cart 🛒</a></li>
         </ul>
       </div>
     </nav>
