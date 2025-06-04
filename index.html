@@ -6,21 +6,34 @@
   <title>Your Art Shop</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <script>
-    async function loadPage(page) {
+    const pages = [
+      { name: "Gallery", file: "gallery.html" },
+      { name: "Shop", file: "shop.html" },
+      { name: "About", file: "about.html" },
+      { name: "Contact", file: "contact.html" },
+      { name: "Cart 🛒", file: "cart.html" }
+    ];
+
+    async function loadPage(page, label = null) {
       try {
         const res = await fetch(page);
         if (!res.ok) throw new Error('Page not found: ' + page);
         const html = await res.text();
         document.getElementById("content-window").innerHTML = html;
-        console.log(`Loaded ${page}`);
+        if (label) document.getElementById("mobileMenuButton").innerText = label;
       } catch (e) {
         document.getElementById("content-window").innerHTML = `<p class="text-center text-red-600">Error loading page: ${e.message}</p>`;
         console.error(e);
       }
     }
 
+    function toggleMobileDropdown() {
+      const menu = document.getElementById('mobileDropdown');
+      menu.classList.toggle('hidden');
+    }
+
     window.onload = () => {
-      loadPage('gallery.html');
+      loadPage('gallery.html', 'Gallery');
     };
   </script>
 </head>
@@ -29,19 +42,35 @@
   <!-- Navbar -->
   <header class="bg-white shadow-md sticky top-0 z-50">
     <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="#" onclick="loadPage('gallery.html'); return false;" class="text-2xl font-bold">YourName.Art</a>
-      <ul class="flex gap-6 font-medium">
+      <a href="#" onclick="loadPage('gallery.html', 'Gallery'); return false;" class="text-2xl font-bold">YourName.Art</a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-6 font-medium">
         <li><a href="#" onclick="loadPage('gallery.html'); return false;" class="hover:text-blue-500">Gallery</a></li>
         <li><a href="#" onclick="loadPage('shop.html'); return false;" class="hover:text-blue-500">Shop</a></li>
         <li><a href="#" onclick="loadPage('about.html'); return false;" class="hover:text-blue-500">About</a></li>
         <li><a href="#" onclick="loadPage('contact.html'); return false;" class="hover:text-blue-500">Contact</a></li>
         <li><a href="#" onclick="loadPage('cart.html'); return false;" class="hover:text-blue-500">Cart 🛒</a></li>
       </ul>
+
+      <!-- Mobile Menu Dropdown -->
+      <div class="md:hidden relative">
+        <button id="mobileMenuButton" onclick="toggleMobileDropdown()" class="bg-gray-100 px-4 py-2 rounded border border-gray-300">
+          Select Page
+        </button>
+        <ul id="mobileDropdown" class="absolute right-0 mt-2 w-40 bg-white border border-gray-300 rounded shadow-lg hidden z-10">
+          <li><a href="#" onclick="loadPage('gallery.html', 'Gallery'); toggleMobileDropdown(); return false;" class="block px-4 py-2 hover:bg-gray-100">Gallery</a></li>
+          <li><a href="#" onclick="loadPage('shop.html', 'Shop'); toggleMobileDropdown(); return false;" class="block px-4 py-2 hover:bg-gray-100">Shop</a></li>
+          <li><a href="#" onclick="loadPage('about.html', 'About'); toggleMobileDropdown(); return false;" class="block px-4 py-2 hover:bg-gray-100">About</a></li>
+          <li><a href="#" onclick="loadPage('contact.html', 'Contact'); toggleMobileDropdown(); return false;" class="block px-4 py-2 hover:bg-gray-100">Contact</a></li>
+          <li><a href="#" onclick="loadPage('cart.html', 'Cart 🛒'); toggleMobileDropdown(); return false;" class="block px-4 py-2 hover:bg-gray-100">Cart 🛒</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
   <!-- Dynamic Content Window -->
-  <main id="content-window" class="container mx-auto px-4 py-16"></main>
+  <main id="content-window" class="container mx-auto px-4 py-8"></main>
 
   <!-- Footer -->
   <footer class="bg-gray-200 py-6 text-center text-sm">
