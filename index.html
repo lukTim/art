@@ -11,16 +11,16 @@
       box-shadow: none;
     }
     .fade-toggle {
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      transform-origin: top right;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      overflow: hidden;
     }
     .fade-toggle.hidden {
+      max-height: 0;
       opacity: 0;
-      transform: scale(0.95);
     }
     .fade-toggle.visible {
+      max-height: 500px;
       opacity: 1;
-      transform: scale(1);
     }
   </style>
   <script>
@@ -49,7 +49,7 @@
       const menu = document.getElementById('mobileDropdown');
       if (menu.classList.contains('hidden')) {
         menu.classList.remove('hidden');
-        setTimeout(() => menu.classList.add('visible'), 10);
+        requestAnimationFrame(() => menu.classList.add('visible'));
       } else {
         menu.classList.remove('visible');
         setTimeout(() => menu.classList.add('hidden'), 300);
