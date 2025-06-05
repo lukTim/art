@@ -1,9 +1,6 @@
 
-<script src="https://cdn.tailwindcss.com"></script>
-
 <h1 class="text-3xl font-bold mb-6 text-center">Gallery</h1>
 
-<!-- FILTER BUTTONS -->
 <div class="text-center my-6 space-x-2">
   <button data-category="all" class="filter-button px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">All</button>
   <button data-category="acrylic" class="filter-button px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Acrylic</button>
@@ -11,97 +8,127 @@
   <button data-category="oil" class="filter-button px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Oil</button>
 </div>
 
-<!-- RESPONSIVE GALLERY GRID -->
+<!-- GALLERY -->
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4" id="gallery">
-  
-  <figure class="gallery-item acrylic break-inside-avoid mb-4">
+  <figure class="gallery-item acrylic mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art1.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art1.webp"
-         alt="Tranquil Forest" loading="lazy"
-         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+         alt="Tranquil Forest - Acrylic"
+         loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-300"
+         tabindex="0">
     <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
   </figure>
 
-  <figure class="gallery-item digital break-inside-avoid mb-4">
+  <figure class="gallery-item acrylic mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art2.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art2.webp"
-         alt="Tranquil Forest" loading="lazy"
-         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+         alt="Cosmic Impressions - Acrylic"
+         loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-300"
+         tabindex="0">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Cosmic Impressions” – Digital artwork, 2024</figcaption>
   </figure>
 
-  <figure class="gallery-item oil break-inside-avoid mb-4">
+  <figure class="gallery-item oil mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art3.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art3.webp"
-         alt="Tranquil Forest" loading="lazy"
-         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+         alt="Golden Horizon - Oil"
+         loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-300"
+         tabindex="0">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Golden Horizon” – Oil on canvas, 2024</figcaption>
   </figure>
 
-  <figure class="gallery-item acrylic break-inside-avoid mb-4">
+  <figure class="gallery-item oil mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art4.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art4.jpg"
-         alt="Tranquil Forest" loading="lazy"
-         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+         alt="Golden Horizon - Oil"
+         loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-300"
+         tabindex="0">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Golden Horizon” – Oil on canvas, 2024</figcaption>
   </figure>
 
-  <figure class="gallery-item digital break-inside-avoid mb-4">
+  <figure class="gallery-item digital mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art5.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art5.jpg"
-         alt="Tranquil Forest" loading="lazy"
-         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+         alt="Golden Horizon - Digital"
+         loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-300"
+         tabindex="0">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Golden Horizon” – Oil on canvas, 2024</figcaption>
   </figure>
 
-  <figure class="gallery-item acrylic break-inside-avoid mb-4">
+  <figure class="gallery-item digital mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art6.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art6.jpg"
-         alt="Tranquil Forest" loading="lazy"
-         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+         alt="Golden Horizon - Digital"
+         loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-300"
+         tabindex="0">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Golden Horizon” – Oil on canvas, 2024</figcaption>
   </figure>
 
-  <figure class="gallery-item oil break-inside-avoid mb-4">
+  <figure class="gallery-item digital mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art7.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art7.jpg"
-         alt="Tranquil Forest" loading="lazy"
-         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+         alt="Golden Horizon - Digital"
+         loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-300"
+         tabindex="0">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Golden Horizon” – Oil on canvas, 2024</figcaption>
   </figure>
+
 </div>
 
 <!-- MODAL -->
-<div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center transition-opacity duration-300 ease-in-out opacity-0">
+<div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center transition-opacity duration-300 ease-in-out opacity-0" role="dialog" aria-hidden="true">
   <img id="modalImage"
        class="w-auto max-w-3xl max-h-[70vh] rounded-lg object-contain shadow-2xl transform scale-95 transition-all duration-300 ease-in-out opacity-0"
        alt="Enlarged Artwork">
 </div>
 
-<!-- SCRIPT -->
+<!-- SCRIPT AT END (IMPORTANT!) -->
 <script>
-  // Filter function needs to be in global scope
-  function filterGallery(category) {
-    document.querySelectorAll('.gallery-item').forEach(el => {
-      el.style.display = category === 'all' || el.classList.contains(category) ? 'block' : 'none';
-    });
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const thumbnails = Array.from(document.querySelectorAll(".gallery-img"));
     let currentIndex = 0;
 
+    function filterGallery(category) {
+      document.querySelectorAll('.gallery-item').forEach(el => {
+        el.style.display = category === 'all' || el.classList.contains(category) ? 'block' : 'none';
+      });
+    }
+
+    function showImage(index) {
+      if (index < 0 || index >= thumbnails.length) return;
+      currentIndex = index;
+      modalImg.src = thumbnails[index].getAttribute("data-full");
+    }
+
+    function closeModal() {
+      modal.classList.remove("opacity-100");
+      modalImg.classList.remove("scale-100", "opacity-100");
+      modalImg.classList.add("scale-95", "opacity-0");
+      setTimeout(() => {
+        modal.classList.add("hidden");
+        modal.setAttribute("aria-hidden", "true");
+        modalImg.src = "";
+      }, 300);
+    }
+
     thumbnails.forEach((img, i) => {
       img.addEventListener("click", () => {
-        modalImg.src = img.getAttribute("data-full");
+        showImage(i);
         modal.classList.remove("hidden");
+        modal.setAttribute("aria-hidden", "false");
         modal.classList.add("opacity-100");
         modalImg.classList.remove("scale-95", "opacity-0");
         void modalImg.offsetWidth;
         modalImg.classList.add("scale-100", "opacity-100");
-        currentIndex = i;
       });
     });
 
@@ -116,23 +143,6 @@
       if (e.key === "ArrowRight") showImage(currentIndex + 1);
     });
 
-    function closeModal() {
-      modal.classList.remove("opacity-100");
-      modalImg.classList.remove("scale-100", "opacity-100");
-      modalImg.classList.add("scale-95", "opacity-0");
-      setTimeout(() => {
-        modal.classList.add("hidden");
-        modalImg.src = "";
-      }, 300);
-    }
-
-    function showImage(index) {
-      if (index < 0 || index >= thumbnails.length) return;
-      currentIndex = index;
-      modalImg.src = thumbnails[index].getAttribute("data-full");
-    }
-
-    // Attach filter button event listeners
     document.querySelectorAll('.filter-button').forEach(button => {
       button.addEventListener('click', () => {
         const category = button.getAttribute('data-category');
