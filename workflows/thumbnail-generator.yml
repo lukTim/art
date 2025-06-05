@@ -1,0 +1,36 @@
+name: Generate Thumbnails
+
+on:
+  push:
+    paths:
+      - 'images/*.webp'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install sharp
+      run: |
+        npm install sharp
+
+    - name: Generate thumbnails
+      run: |
+        mkdir -p images/thumbs
+        node generate-thumbnails.js
+
+    - name: Commit thumbnails
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add images/thumbs
+        git commit -m "🖼️ Add auto-generated thumbnails"
+        git push
