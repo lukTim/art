@@ -1,5 +1,5 @@
-e<script src="https://cdn.tailwindcss.com"></script>
 
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <h1 class="text-3xl font-bold mb-6 text-center">Gallery</h1>
 
@@ -12,26 +12,26 @@ e<script src="https://cdn.tailwindcss.com"></script>
   </div>
 
   <!-- RESPONSIVE MASONRY GALLERY -->
-  <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
-    <div class="gallery-item acrylic opacity-0 transform translate-y-4 transition-all duration-700">
+  <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 px-4" id="gallery">
+    <div class="gallery-item acrylic break-inside-avoid mb-4 opacity-0 translate-y-4 transition-all duration-700">
       <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art1.jpg"
-           data-full="./images/art1.webp"
+           data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art1.webp"
            alt="Tranquil Forest" loading="lazy"
            class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
       <p class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</p>
     </div>
 
-    <div class="gallery-item acrylic opacity-0 transform translate-y-4 transition-all duration-700">
-      <img src="./images/Thumbnails/art2.jpg"
-           data-full="./images/art2.webp"
+    <div class="gallery-item acrylic break-inside-avoid mb-4 opacity-0 translate-y-4 transition-all duration-700">
+      <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art2.jpg"
+           data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art2.webp"
            alt="Digital Dream" loading="lazy"
            class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
       <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
     </div>
 
-    <div class="gallery-item digital opacity-0 transform translate-y-4 transition-all duration-700">
-      <img src="./images/Thumbnails/art3.jpg"
-           data-full="./images/art3.webp"
+    <div class="gallery-item digital break-inside-avoid mb-4 opacity-0 translate-y-4 transition-all duration-700">
+      <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art3.jpg"
+           data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art3.webp"
            alt="Digital Dream" loading="lazy"
            class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
       <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
@@ -109,5 +109,4 @@ e<script src="https://cdn.tailwindcss.com"></script>
       document.querySelectorAll(".gallery-item").forEach(el => observer.observe(el));
     });
   </script>
-</body>
-</html>
+
