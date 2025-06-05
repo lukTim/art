@@ -1,31 +1,78 @@
-<h1 class="text-3xl font-bold mb-8 text-center">Gallery</h1>
-<div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 px-4">
-  <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art1.webp" alt="Art 1" loading="lazy" class="mb-4 w-full rounded-lg cursor-pointer gallery-item">
-  <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art2.webp" alt="Art 2" loading="lazy" class="mb-4 w-full rounded-lg cursor-pointer gallery-item">
-  <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art3.webp" alt="Art 3" loading="lazy" class="mb-4 w-full rounded-lg cursor-pointer gallery-item">
-  <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art4.jpg" alt="Art 4" loading="lazy" class="mb-4 w-full rounded-lg cursor-pointer gallery-item">
-  <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art5.jpg" alt="Art 5" loading="lazy" class="mb-4 w-full rounded-lg cursor-pointer gallery-item">
-  <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art6.jpg" alt="Art 6" loading="lazy" class="mb-4 w-full rounded-lg cursor-pointer gallery-item">
-  <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art7.jpg" alt="Art 7" loading="lazy" class="mb-4 w-full rounded-lg cursor-pointer gallery-item">
-  <!-- Add more images following the same pattern -->
+
+
+<h1 class="text-3xl font-bold mb-6 text-center">Gallery</h1>
+
+<!-- FILTER BUTTONS -->
+<div class="text-center my-6 space-x-2">
+  <button onclick="filterGallery('all')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">All</button>
+  <button onclick="filterGallery('acrylic')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Acrylic</button>
+  <button onclick="filterGallery('digital')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Digital</button>
+  <button onclick="filterGallery('oil')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Oil</button>
 </div>
 
-<!-- Image Modal -->
+<!-- GALLERY -->
+<div class="columns-2 md:columns-3 lg:columns-4 gap-4 px-4">
+  <!-- ARTWORK -->
+  <div class="relative mb-4 gallery-item acrylic">
+    <img 
+      src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art1.webp"
+      data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art1.jpg"
+      alt="Tranquil Forest" loading="lazy"
+      class="w-full max-w-xs mx-auto rounded-lg cursor-pointer gallery-img transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm text-center px-2 py-1 opacity-0 hover:opacity-100 transition-opacity">
+      “Tranquil Forest” – Acrylic on canvas, 2024
+    </div>
+  </div>
+
+  <div class="relative mb-4 gallery-item digital">
+    <img 
+      src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art2.webp"
+      data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art2.jpg"
+      alt="Digital Dream" loading="lazy"
+      class="w-full max-w-xs mx-auto rounded-lg cursor-pointer gallery-img transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm text-center px-2 py-1 opacity-0 hover:opacity-100 transition-opacity">
+      “Digital Dream” – Illustration, 2023
+    </div>
+  </div>
+
+  <div class="relative mb-4 gallery-item digital">
+    <img 
+      src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art3.webp"
+      data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art3.jpg"
+      alt="Digital Dream" loading="lazy"
+      class="w-full max-w-xs mx-auto rounded-lg cursor-pointer gallery-img transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm text-center px-2 py-1 opacity-0 hover:opacity-100 transition-opacity">
+      “Digital Dream” – Illustration, 2023
+    </div>
+  </div>
+  
+  <!-- Add more images following same structure -->
+</div>
+
+<!-- MODAL -->
 <div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-80 p-4">
   <img id="modalImage" class="max-w-full max-h-full rounded-lg" alt="Enlarged Artwork">
 </div>
 
 <script>
+  // Open modal with full-size image
   document.addEventListener("click", function (e) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
 
-    if (e.target.classList.contains("gallery-item")) {
+    if (e.target.classList.contains("gallery-img")) {
+      modalImg.src = e.target.getAttribute("data-full");
       modal.classList.remove("hidden");
-      modalImg.src = e.target.src;
     } else if (e.target === modal) {
       modal.classList.add("hidden");
       modalImg.src = "";
     }
   });
+
+  // Filter images by category
+  function filterGallery(category) {
+    document.querySelectorAll('.gallery-item').forEach(el => {
+      el.style.display = category === 'all' || el.classList.contains(category) ? 'block' : 'none';
+    });
+  }
 </script>
