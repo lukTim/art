@@ -138,10 +138,49 @@
   <!-- Dynamic Content Window -->
   <main id="content-window" class="container mx-auto px-4 py-8"></main>
 
+  <!-- MODAL (placed in index.html!) -->
+  <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center">
+    <img id="modalImage" class="max-w-full max-h-full rounded-lg" alt="Enlarged Artwork">
+  </div>
+
+  
   <!-- Footer -->
   <footer class="bg-gray-100 py-6 text-center text-sm text-gray-500">
     &copy; 2025 YourName. All rights reserved.
   </footer>
 
+  <script>
+  // Re-bind gallery click events when content is loaded
+  async function loadPage(page, label = null) {
+    try {
+      const res = await fetch(page);
+      if (!res.ok) throw new Error('Page not found: ' + page);
+      const html = await res.text();
+      document.getElementById("content-window").innerHTML = html;
+      if (label) document.getElementById("mobileMenuButton").innerText = label;
+
+      // 🧠 BIND modal logic after gallery loads
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      document.querySelectorAll(".gallery-img").forEach(img => {
+        img.addEventListener("click", () => {
+          modalImg.src = img.getAttribute("data-full");
+          modal.classList.remove("hidden");
+        });
+      });
+      modal?.addEventListener("click", function (e) {
+        if (e.target === modal) {
+          modal.classList.add("hidden");
+          modalImg.src = "";
+        }
+      });
+    } catch (e) {
+      document.getElementById("content-window").innerHTML = `<p class="text-center text-red-600">Error loading page: ${e.message}</p>`;
+      console.error(e);
+    }
+  }
+</script>
+
+  
 </body>
 </html>
