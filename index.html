@@ -81,6 +81,28 @@
     };
   </script>
 </head>
+
+<!-- Image Modal -->
+<div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-80 p-4">
+  <img id="modalImage" class="max-w-full max-h-full rounded-lg" alt="Enlarged Artwork">
+</div>
+
+<script>
+  document.addEventListener("click", function (e) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+
+    if (e.target.classList.contains("gallery-item")) {
+      modal.classList.remove("hidden");
+      modalImg.src = e.target.src;
+    } else if (e.target === modal) {
+      modal.classList.add("hidden");
+      modalImg.src = "";
+    }
+  });
+</script>
+
+
 <body class="text-gray-700 min-h-screen">
 
   <!-- Navbar -->
