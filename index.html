@@ -28,89 +28,12 @@
       opacity: 1;
     }
   </style>
-  <script>
-    const pages = [
-      { name: "Gallery", file: "gallery.html" },
-      { name: "Shop", file: "shop.html" },
-      { name: "About", file: "about.html" },
-      { name: "Contact", file: "contact.html" },
-      { name: "Cart", file: "cart.html" }
-    ];
-
-    async function loadPage(page, label = null) {
-      try {
-        const res = await fetch(page);
-        if (!res.ok) throw new Error('Page not found: ' + page);
-        const html = await res.text();
-        document.getElementById("content-window").innerHTML = html;
-        if (label) document.getElementById("mobileMenuButton").innerText = label;
-      } catch (e) {
-        document.getElementById("content-window").innerHTML = `<p class="text-center text-red-600">Error loading page: ${e.message}</p>`;
-        console.error(e);
-      }
-    }
-
-    function toggleMobileDropdown() {
-      const menu = document.getElementById('mobileDropdown');
-      if (menu.classList.contains('hidden')) {
-        menu.classList.remove('hidden');
-        requestAnimationFrame(() => menu.classList.add('visible'));
-        document.addEventListener('click', outsideClickListener);
-      } else {
-        closeMobileDropdown();
-      }
-    }
-
-    function closeMobileDropdown() {
-      const menu = document.getElementById('mobileDropdown');
-      menu.classList.remove('visible');
-      setTimeout(() => menu.classList.add('hidden'), 300);
-      document.removeEventListener('click', outsideClickListener);
-    }
-
-    function outsideClickListener(event) {
-      const menu = document.getElementById('mobileDropdown');
-      const button = document.getElementById('mobileMenuButton');
-      if (!menu.contains(event.target) && !button.contains(event.target)) {
-        closeMobileDropdown();
-      }
-    }
-
-    window.onload = () => {
-      loadPage('gallery.html', 'Gallery');
-    };
-  </script>
 </head>
-
-<!-- MODAL (placed in index.html!) -->
-<div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center">
-<img 
-  id="modalImage" 
-  class="max-w-full max-h-[90vh] rounded-lg object-contain shadow-2xl transform scale-95 transition-transform duration-300 ease-in-out"
-  alt="Enlarged Artwork"
-/>
-</div>
-  
-<script>
-  document.addEventListener("click", function (e) {
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-
-    if (e.target.classList.contains("gallery-item")) {
-      modal.classList.remove("hidden");
-      modalImg.src = e.target.src;
-    } else if (e.target === modal) {
-      modal.classList.add("hidden");
-      modalImg.src = "";
-    }
-  });
-</script>
-
 
 <body class="text-gray-700 min-h-screen">
 
   <!-- Navbar -->
-  <header class="bg-white/70 backdrop-blur shadow-md sticky top-0 z-50 border-b border-gray-200">
+  <header class="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
     <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="#" onclick="loadPage('gallery.html', 'Gallery'); return false;" class="text-2xl font-bold text-gray-800">YourName.Art</a>
 
@@ -142,49 +65,100 @@
   <!-- Dynamic Content Window -->
   <main id="content-window" class="container mx-auto px-4 py-8"></main>
 
-  <!-- MODAL (placed in index.html!) -->
-  <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center">
-    <img id="modalImage" class="max-w-full max-h-full rounded-lg" alt="Enlarged Artwork">
+  <!-- MODAL -->
+  <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center transition-opacity duration-300 ease-in-out opacity-0">
+    <img 
+      id="modalImage" 
+      class="max-w-full max-h-[90vh] rounded-lg object-contain shadow-2xl transform scale-95 transition-all duration-300 ease-in-out opacity-0"
+      alt="Enlarged Artwork"
+    />
   </div>
 
-  
   <!-- Footer -->
   <footer class="bg-gray-100 py-6 text-center text-sm text-gray-500">
     &copy; 2025 YourName. All rights reserved.
   </footer>
 
   <script>
-  // Re-bind gallery click events when content is loaded
-  async function loadPage(page, label = null) {
-    try {
-      const res = await fetch(page);
-      if (!res.ok) throw new Error('Page not found: ' + page);
-      const html = await res.text();
-      document.getElementById("content-window").innerHTML = html;
-      if (label) document.getElementById("mobileMenuButton").innerText = label;
+    const pages = [
+      { name: "Gallery", file: "gallery.html" },
+      { name: "Shop", file: "shop.html" },
+      { name: "About", file: "about.html" },
+      { name: "Contact", file: "contact.html" },
+      { name: "Cart", file: "cart.html" }
+    ];
 
-      // 🧠 BIND modal logic after gallery loads
-      const modal = document.getElementById('imageModal');
-      const modalImg = document.getElementById('modalImage');
-      document.querySelectorAll(".gallery-img").forEach(img => {
-        img.addEventListener("click", () => {
-          modalImg.src = img.getAttribute("data-full");
-          modal.classList.remove("hidden");
-        });
-      });
-      modal?.addEventListener("click", function (e) {
-        if (e.target === modal) {
-          modal.classList.add("hidden");
-          modalImg.src = "";
-        }
-      });
-    } catch (e) {
-      document.getElementById("content-window").innerHTML = `<p class="text-center text-red-600">Error loading page: ${e.message}</p>`;
-      console.error(e);
+    function toggleMobileDropdown() {
+      const menu = document.getElementById('mobileDropdown');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        requestAnimationFrame(() => menu.classList.add('visible'));
+        document.addEventListener('click', outsideClickListener);
+      } else {
+        closeMobileDropdown();
+      }
     }
-  }
-</script>
 
-  
+    function closeMobileDropdown() {
+      const menu = document.getElementById('mobileDropdown');
+      menu.classList.remove('visible');
+      setTimeout(() => menu.classList.add('hidden'), 300);
+      document.removeEventListener('click', outsideClickListener);
+    }
+
+    function outsideClickListener(event) {
+      const menu = document.getElementById('mobileDropdown');
+      const button = document.getElementById('mobileMenuButton');
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+        closeMobileDropdown();
+      }
+    }
+
+    // Enhanced Load Page + Modal Animation
+    async function loadPage(page, label = null) {
+      try {
+        const res = await fetch(page);
+        if (!res.ok) throw new Error('Page not found: ' + page);
+        const html = await res.text();
+        document.getElementById("content-window").innerHTML = html;
+        if (label) document.getElementById("mobileMenuButton").innerText = label;
+
+        // Modal Logic
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+
+        document.querySelectorAll(".gallery-img").forEach(img => {
+          img.addEventListener("click", () => {
+            modalImg.src = img.getAttribute("data-full");
+            modal.classList.remove("hidden");
+            modalImg.classList.remove("scale-95", "opacity-0");
+            void modalImg.offsetWidth;
+            modalImg.classList.add("scale-100", "opacity-100");
+            modal.classList.add("opacity-100");
+          });
+        });
+
+        modal?.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            modal.classList.remove("opacity-100");
+            modalImg.classList.remove("scale-100", "opacity-100");
+            modalImg.classList.add("scale-95", "opacity-0");
+            setTimeout(() => {
+              modal.classList.add("hidden");
+              modalImg.src = "";
+            }, 300);
+          }
+        });
+
+      } catch (e) {
+        document.getElementById("content-window").innerHTML = `<p class="text-center text-red-600">Error loading page: ${e.message}</p>`;
+        console.error(e);
+      }
+    }
+
+    window.onload = () => {
+      loadPage('gallery.html', 'Gallery');
+    };
+  </script>
 </body>
 </html>
