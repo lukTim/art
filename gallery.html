@@ -13,24 +13,24 @@
 <!-- RESPONSIVE MASONRY GALLERY -->
 <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 px-4" id="gallery">
   <div class="gallery-item acrylic break-inside-avoid mb-4 opacity-0 translate-y-4 transition-all duration-700">
-    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art7.jpg"
-         data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art7.jpg"
+    <img src="./images/Thumbnails/art7.jpg"
+         data-full="./images/art7.jpg"
          alt="Tranquil Forest" loading="lazy"
          class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
     <p class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</p>
   </div>
 
   <div class="gallery-item acrylic break-inside-avoid mb-4 opacity-0 translate-y-4 transition-all duration-700">
-    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art5.jpg"
-         data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art5.jpg"
+    <img src="./images/Thumbnails/art5.jpg"
+         data-full="./images/art5.jpg"
          alt="Digital Dream" loading="lazy"
          class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
     <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
   </div>
 
   <div class="gallery-item digital break-inside-avoid mb-4 opacity-0 translate-y-4 transition-all duration-700">
-    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art3.jpg"
-         data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art3.webp"
+    <img src="./images/Thumbnails/art3.jpg"
+         data-full="./images/art3.webp"
          alt="Digital Dream" loading="lazy"
          class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
     <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
@@ -95,7 +95,7 @@
       });
     };
 
-    // IntersectionObserver for scroll-fade animation
+    // Scroll-triggered fade-ins
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
