@@ -1,56 +1,56 @@
-<h1 class="text-3xl font-bold mb-6 text-center">Gallery</h1>
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- FILTER BUTTONS -->
-<div class="text-center my-6 space-x-2">
-  <button onclick="filterGallery('all')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">All</button>
-  <button onclick="filterGallery('acrylic')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Acrylic</button>
-  <button onclick="filterGallery('digital')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Digital</button>
-  <button onclick="filterGallery('oil')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Oil</button>
-</div>
 
-<!-- GALLERY -->
-<div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 px-4">
-  <!-- ARTWORK -->
-  <div class="gallery-item acrylic break-inside-avoid mb-4">
-    <img 
-      src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art7.jpg"
-      data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art7.jpg"
-      alt="Tranquil Forest" loading="lazy"
-      class="w-full rounded-lg cursor-pointer gallery-img shadow hover:shadow-lg transition-transform duration-300 hover:scale-105"
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm text-center px-2 py-1 opacity-0 hover:opacity-100 transition-opacity">
-      “Tranquil Forest” – Acrylic on canvas, 2024
-    </div>
+  <h1 class="text-3xl font-bold mb-6 text-center">Gallery</h1>
+
+  <!-- FILTER BUTTONS -->
+  <div class="text-center my-6 space-x-2">
+    <button onclick="filterGallery('all')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">All</button>
+    <button onclick="filterGallery('acrylic')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Acrylic</button>
+    <button onclick="filterGallery('digital')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Digital</button>
+    <button onclick="filterGallery('oil')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Oil</button>
   </div>
 
-  <div class="gallery-item acrylic break-inside-avoid mb-4">
-    <img 
-      src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art5.jpg"
-      data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art5.jpg"
-      alt="Digital Dream" loading="lazy"
-      class="w-full rounded-lg cursor-pointer gallery-img shadow hover:shadow-lg transition-transform duration-300 hover:scale-105"
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm text-center px-2 py-1 opacity-0 hover:opacity-100 transition-opacity">
-      “Digital Dream” – Illustration, 2023
+  <!-- RESPONSIVE MASONRY GALLERY -->
+  <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 px-4">
+    
+    <!-- ARTWORK ITEM -->
+    <div class="gallery-item acrylic break-inside-avoid mb-4 block">
+      <img 
+        src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art7.jpg"
+        data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art7.jpg"
+        alt="Tranquil Forest" loading="lazy"
+        class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105"
+      >
+      <figcaption class="text-center text-sm text-gray-600 mt-1">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
     </div>
+
+    <div class="gallery-item acrylic break-inside-avoid mb-4 block">
+      <img 
+        src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art5.jpg"
+        data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art5.jpg"
+        alt="Digital Dream" loading="lazy"
+        class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105"
+      >
+      <figcaption class="text-center text-sm text-gray-600 mt-1">“Digital Dream” – Illustration, 2023</figcaption>
+    </div>
+
+    <div class="gallery-item digital break-inside-avoid mb-4 block">
+      <img 
+        src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art3.jpg"
+        data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art3.webp"
+        alt="Digital Dream" loading="lazy"
+        class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105"
+      >
+      <figcaption class="text-center text-sm text-gray-600 mt-1">“Digital Dream” – Illustration, 2023</figcaption>
+    </div>
+
+    <!-- Add more thumbnails in the same format -->
   </div>
 
-  <div class="gallery-item acrylic break-inside-avoid mb-4">
-    <img 
-      src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/Thumbnails/art3.jpg"
-      data-full="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art3.webp"
-      alt="Digital Dream" loading="lazy"
-      class="w-full rounded-lg cursor-pointer gallery-img shadow hover:shadow-lg transition-transform duration-300 hover:scale-105"
-    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white text-sm text-center px-2 py-1 opacity-0 hover:opacity-100 transition-opacity">
-      “Digital Dream” – Illustration, 2023
-    </div>
-  </div>
-  
-  <!-- Add more images following same structure -->
-</div>
-
-<!-- MODAL -->
- <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center transition-opacity duration-300 ease-in-out opacity-0">
+  <!-- MODAL -->
+  <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center transition-opacity duration-300 ease-in-out opacity-0">
     <img 
       id="modalImage" 
       class="w-auto max-w-4xl max-h-[85vh] rounded-lg object-contain shadow-2xl transform scale-95 transition-all duration-300 ease-in-out opacity-0"
@@ -58,7 +58,8 @@
     />
   </div>
 
-<script>
+  <!-- SCRIPT -->
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
       const modal = document.getElementById('imageModal');
       const modalImg = document.getElementById('modalImage');
