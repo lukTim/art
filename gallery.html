@@ -1,92 +1,92 @@
+
 <script src="https://cdn.tailwindcss.com"></script>
 
 <h1 class="text-3xl font-bold mb-6 text-center">Gallery</h1>
 
 <!-- FILTER BUTTONS -->
 <div class="text-center my-6 space-x-2">
-  <button onclick="filterGallery('all')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">All</button>
-  <button onclick="filterGallery('acrylic')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Acrylic</button>
-  <button onclick="filterGallery('digital')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Digital</button>
-  <button onclick="filterGallery('oil')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Oil</button>
+  <button data-category="all" class="filter-button px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">All</button>
+  <button data-category="acrylic" class="filter-button px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Acrylic</button>
+  <button data-category="digital" class="filter-button px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Digital</button>
+  <button data-category="oil" class="filter-button px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Oil</button>
 </div>
 
 <!-- RESPONSIVE GALLERY GRID -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4" id="gallery">
-  <div class="gallery-item acrylic break-inside-avoid">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4" id="gallery">
+  
+  <figure class="gallery-item acrylic break-inside-avoid mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art1.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art1.webp"
          alt="Tranquil Forest" loading="lazy"
-         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <p class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</p>
-  </div>
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+  </figure>
 
-  <div class="gallery-item acrylic">
+  <figure class="gallery-item digital break-inside-avoid mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art2.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art2.webp"
-         alt="Digital Dream" loading="lazy"
-         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
-  </div>
+         alt="Tranquil Forest" loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+  </figure>
 
-  <div class="gallery-item digital">
+  <figure class="gallery-item oil break-inside-avoid mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art3.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art3.webp"
-         alt="Digital Dream" loading="lazy"
-         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
-  </div>
+         alt="Tranquil Forest" loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+  </figure>
 
-  <div class="gallery-item digital">
+  <figure class="gallery-item acrylic break-inside-avoid mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art4.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art4.jpg"
-         alt="Digital Dream" loading="lazy"
-         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
-  </div>
+         alt="Tranquil Forest" loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+  </figure>
 
-  <div class="gallery-item digital">
+  <figure class="gallery-item digital break-inside-avoid mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art5.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art5.jpg"
-         alt="Digital Dream" loading="lazy"
-         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
-  </div>
+         alt="Tranquil Forest" loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+  </figure>
 
-  <div class="gallery-item digital">
+  <figure class="gallery-item acrylic break-inside-avoid mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art6.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art6.jpg"
-         alt="Digital Dream" loading="lazy"
-         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
-  </div>
+         alt="Tranquil Forest" loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+  </figure>
 
-  <div class="gallery-item digital">
+  <figure class="gallery-item oil break-inside-avoid mb-4">
     <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art7.jpg"
          data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art7.jpg"
-         alt="Digital Dream" loading="lazy"
-         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
-  </div>
-
-  <div class="gallery-item digital">
-    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art7.jpg"
-         data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art7.jpg"
-         alt="Digital Dream" loading="lazy"
-         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-    <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
-  </div>
-  
+         alt="Tranquil Forest" loading="lazy"
+         class="gallery-img max-w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+    <figcaption class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+  </figure>
 </div>
 
 <!-- MODAL -->
 <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center transition-opacity duration-300 ease-in-out opacity-0">
   <img id="modalImage"
-       class="w-auto max-w-3xl max-h-[80vh] rounded-lg object-contain shadow-2xl transform scale-95 transition-all duration-300 ease-in-out opacity-0"
+       class="w-auto max-w-3xl max-h-[70vh] rounded-lg object-contain shadow-2xl transform scale-95 transition-all duration-300 ease-in-out opacity-0"
        alt="Enlarged Artwork">
 </div>
 
 <!-- SCRIPT -->
 <script>
+  // Filter function needs to be in global scope
+  function filterGallery(category) {
+    document.querySelectorAll('.gallery-item').forEach(el => {
+      el.style.display = category === 'all' || el.classList.contains(category) ? 'block' : 'none';
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
@@ -132,10 +132,12 @@
       modalImg.src = thumbnails[index].getAttribute("data-full");
     }
 
-    window.filterGallery = function (category) {
-      document.querySelectorAll('.gallery-item').forEach(el => {
-        el.style.display = category === 'all' || el.classList.contains(category) ? 'block' : 'none';
+    // Attach filter button event listeners
+    document.querySelectorAll('.filter-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        filterGallery(category);
       });
-    };
+    });
   });
 </script>
