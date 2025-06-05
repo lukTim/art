@@ -1,100 +1,98 @@
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<h1 class="text-3xl font-bold mb-6 text-center">Gallery</h1>
 
-  <h1 class="text-3xl font-bold mb-6 text-center">Gallery</h1>
+<!-- FILTER BUTTONS -->
+<div class="text-center my-6 space-x-2">
+  <button onclick="filterGallery('all')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">All</button>
+  <button onclick="filterGallery('acrylic')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Acrylic</button>
+  <button onclick="filterGallery('digital')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Digital</button>
+  <button onclick="filterGallery('oil')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Oil</button>
+</div>
 
-  <!-- FILTER BUTTONS -->
-  <div class="text-center my-6 space-x-2">
-    <button onclick="filterGallery('all')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">All</button>
-    <button onclick="filterGallery('acrylic')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Acrylic</button>
-    <button onclick="filterGallery('digital')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Digital</button>
-    <button onclick="filterGallery('oil')" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">Oil</button>
+<!-- RESPONSIVE MASONRY GALLERY -->
+<div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 px-4" id="gallery">
+  <div class="gallery-item acrylic break-inside-avoid mb-4 block">
+    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art1.jpg"
+         data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art1.webp"
+         alt="Tranquil Forest" loading="lazy"
+         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+    <p class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</p>
   </div>
 
-  <!-- RESPONSIVE MASONRY GALLERY -->
-  <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 px-4" id="gallery">
-    <div class="gallery-item acrylic break-inside-avoid mb-4 opacity-100 translate-y-0 transition-all duration-700">
-      <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art1.jpg"
-           data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art1.webp"
-           alt="Tranquil Forest" loading="lazy"
-           class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-      <p class="mt-1 text-center text-sm text-gray-600">“Tranquil Forest” – Acrylic on canvas, 2024</p>
-    </div>
-
-    <div class="gallery-item acrylic break-inside-avoid mb-4 opacity-100 translate-y-0 transition-all duration-700">
-      <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art2.jpg"
-           data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art2.webp"
-           alt="Digital Dream" loading="lazy"
-           class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-      <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
-    </div>
-
-    <div class="gallery-item digital break-inside-avoid mb-4 opacity-100 translate-y-0 transition-all duration-700">
-      <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art3.jpg"
-           data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art3.webp"
-           alt="Digital Dream" loading="lazy"
-           class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
-      <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
-    </div>
+  <div class="gallery-item acrylic break-inside-avoid mb-4 block">
+    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art2.jpg"
+         data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art2.webp"
+         alt="Digital Dream" loading="lazy"
+         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+    <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
   </div>
 
-  <!-- MODAL -->
-  <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center transition-opacity duration-300 ease-in-out opacity-0">
-    <img id="modalImage" class="w-auto max-w-4xl max-h-[85vh] rounded-lg object-contain shadow-2xl transform scale-95 transition-all duration-300 ease-in-out opacity-0" alt="Enlarged Artwork">
+  <div class="gallery-item digital break-inside-avoid mb-4 block">
+    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/Thumbnails/art3.jpg"
+         data-full="https://raw.githubusercontent.com/lukTim/art-gallery/main/images/art3.webp"
+         alt="Digital Dream" loading="lazy"
+         class="gallery-img w-full rounded-lg cursor-pointer shadow hover:shadow-lg transition-transform duration-300 hover:scale-105">
+    <p class="mt-1 text-center text-sm text-gray-600">“Digital Dream” – Illustration, 2023</p>
   </div>
+</div>
 
-  <!-- SCRIPT -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const modal = document.getElementById('imageModal');
-      const modalImg = document.getElementById('modalImage');
-      const thumbnails = Array.from(document.querySelectorAll(".gallery-img"));
-      let currentIndex = 0;
+<!-- MODAL -->
+<div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 p-4 flex items-center justify-center transition-opacity duration-300 ease-in-out opacity-0">
+  <img id="modalImage" class="w-auto max-w-4xl max-h-[85vh] rounded-lg object-contain shadow-2xl transform scale-95 transition-all duration-300 ease-in-out opacity-0" alt="Enlarged Artwork">
+</div>
 
-      thumbnails.forEach((img, i) => {
-        img.addEventListener("click", () => {
-          modalImg.src = img.getAttribute("data-full");
-          modal.classList.remove("hidden");
-          modal.classList.add("opacity-100");
-          modalImg.classList.remove("scale-95", "opacity-0");
-          void modalImg.offsetWidth;
-          modalImg.classList.add("scale-100", "opacity-100");
-          currentIndex = i;
-        });
+<!-- SCRIPT -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const thumbnails = Array.from(document.querySelectorAll(".gallery-img"));
+    let currentIndex = 0;
+
+    thumbnails.forEach((img, i) => {
+      img.addEventListener("click", () => {
+        modalImg.src = img.getAttribute("data-full");
+        modal.classList.remove("hidden");
+        modal.classList.add("opacity-100");
+        modalImg.classList.remove("scale-95", "opacity-0");
+        void modalImg.offsetWidth;
+        modalImg.classList.add("scale-100", "opacity-100");
+        currentIndex = i;
       });
-
-      modal.addEventListener("click", e => {
-        if (e.target === modal) closeModal();
-      });
-
-      document.addEventListener("keydown", e => {
-        if (modal.classList.contains("hidden")) return;
-        if (e.key === "Escape") closeModal();
-        if (e.key === "ArrowLeft") showImage(currentIndex - 1);
-        if (e.key === "ArrowRight") showImage(currentIndex + 1);
-      });
-
-      function closeModal() {
-        modal.classList.remove("opacity-100");
-        modalImg.classList.remove("scale-100", "opacity-100");
-        modalImg.classList.add("scale-95", "opacity-0");
-        setTimeout(() => {
-          modal.classList.add("hidden");
-          modalImg.src = "";
-        }, 300);
-      }
-
-      function showImage(index) {
-        if (index < 0 || index >= thumbnails.length) return;
-        currentIndex = index;
-        modalImg.src = thumbnails[index].getAttribute("data-full");
-      }
-
-      window.filterGallery = function (category) {
-        document.querySelectorAll('.gallery-item').forEach(el => {
-          el.style.display = category === 'all' || el.classList.contains(category) ? 'block' : 'none';
-        });
-      };
     });
-  </script>
 
+    modal.addEventListener("click", e => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (modal.classList.contains("hidden")) return;
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+      if (e.key === "ArrowRight") showImage(currentIndex + 1);
+    });
+
+    function closeModal() {
+      modal.classList.remove("opacity-100");
+      modalImg.classList.remove("scale-100", "opacity-100");
+      modalImg.classList.add("scale-95", "opacity-0");
+      setTimeout(() => {
+        modal.classList.add("hidden");
+        modalImg.src = "";
+      }, 300);
+    }
+
+    function showImage(index) {
+      if (index < 0 || index >= thumbnails.length) return;
+      currentIndex = index;
+      modalImg.src = thumbnails[index].getAttribute("data-full");
+    }
+
+    window.filterGallery = function (category) {
+      document.querySelectorAll('.gallery-item').forEach(el => {
+        el.style.display = category === 'all' || el.classList.contains(category) ? 'block' : 'none';
+      });
+    };
+  });
+</script>
