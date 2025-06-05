@@ -1,19 +1,53 @@
 <h1 class="text-3xl font-bold mb-8 text-center">Gallery</h1>
 <div class="columns-1 sm:columns-2 md:columns-3 gap-4 px-4">
+  <!-- Repeat this block for each image -->
   <figure class="mb-4">
-    <img src="https://source.unsplash.com/800x600/?art,painting,1" alt="Tranquil Forest" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
-    <figcaption class="text-center text-sm text-gray-600 mt-1">“Tranquil Forest” – Acrylic on canvas, 2024</figcaption>
+    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art1.webp" alt="art1" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
+    <figcaption class="text-center text-sm text-gray-600 mt-1">art1</figcaption>
   </figure>
   <figure class="mb-4">
-    <img src="https://source.unsplash.com/800x600/?art,abstract,2" alt="Abstract Flame" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
-    <figcaption class="text-center text-sm text-gray-600 mt-1">“Abstract Flame” – Digital illustration, 2023</figcaption>
+    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art2.webp" alt="art2" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
+    <figcaption class="text-center text-sm text-gray-600 mt-1">art2</figcaption>
   </figure>
   <figure class="mb-4">
-    <img src="https://source.unsplash.com/800x600/?art,oil,3" alt="Ocean Dream" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
-    <figcaption class="text-center text-sm text-gray-600 mt-1">“Ocean Dream” – Oil on board, 2022</figcaption>
+    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art3.webp" alt="art3" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
+    <figcaption class="text-center text-sm text-gray-600 mt-1">art2</figcaption>
   </figure>
   <figure class="mb-4">
-    <img src="https://source.unsplash.com/800x600/?art,landscape,4" alt="Golden Fields" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
-    <figcaption class="text-center text-sm text-gray-600 mt-1">“Golden Fields” – Watercolor on paper, 2024</figcaption>
+    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art4.jpg" alt="art4" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
+    <figcaption class="text-center text-sm text-gray-600 mt-1">art2</figcaption>
   </figure>
+  <figure class="mb-4">
+    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art5.jpg" alt="art5" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
+    <figcaption class="text-center text-sm text-gray-600 mt-1">art2</figcaption>
+  </figure>
+  <figure class="mb-4">
+    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art6.jpg" alt="art6" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
+    <figcaption class="text-center text-sm text-gray-600 mt-1">art2</figcaption>
+  </figure>
+  <figure class="mb-4">
+    <img src="https://raw.githubusercontent.com/lukTim/art-gallery/refs/heads/main/images/art7.jpg" alt="art7" loading="lazy" class="w-full rounded-lg cursor-pointer gallery-item">
+    <figcaption class="text-center text-sm text-gray-600 mt-1">art2</figcaption>
+  </figure>
+  <!-- Add more figures as needed -->
 </div>
+
+<!-- Modal Structure -->
+<div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-80 p-4">
+  <img id="modalImage" class="max-w-full max-h-full rounded-lg" alt="Enlarged Artwork">
+</div>
+
+<script>
+  document.addEventListener("click", function (e) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+
+    if (e.target.classList.contains("gallery-item")) {
+      modal.classList.remove("hidden");
+      modalImg.src = e.target.src;
+    } else if (e.target === modal) {
+      modal.classList.add("hidden");
+      modalImg.src = "";
+    }
+  });
+</script>
